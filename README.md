@@ -5,7 +5,7 @@ ArraySpend is a lightweight, backend-focused web application designed to help us
 ## Features
 
 - **Secure Authentication:** User login and registration system using JSON Web Tokens (JWT).
-- **Expense Tracking:** Full CRUD (Create, Read, Update, Delete) functionality for your daily cash flow.
+- **Expense Tracking:** Full CRUD functionality for your daily cash flow.
 - **Data Organization:** Expenses are categorized for easy tracking and retrieval.
 - **Responsive Design:** Clean and simple UI for both desktop and mobile devices.
 
@@ -13,5 +13,5 @@ ArraySpend is a lightweight, backend-focused web application designed to help us
 
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB (via Mongoose)
-- **Authentication:** JWT, bcrypt
+- **Authentication:** JWT
 - **Frontend:** HTML5, CSS3, JavaScript
