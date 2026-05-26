@@ -1,0 +1,28 @@
+{
+  "name": "array-spend-m2",
+  "version": "1.0.0",
+  "description": "ArraySpend is a lightweight, backend-focused web application designed to help users track their monthly expenses. Built with a focus on clean data structure and secure authentication, it provides a simple interface to manage your financial flow.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/803ghz/Array-Spend-m2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/803ghz/Array-Spend-m2/issues"
+  },
+  "homepage": "https://github.com/803ghz/Array-Spend-m2#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
