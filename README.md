@@ -11,7 +11,7 @@ ArraySpend is a lightweight, backend-focused web application designed to help us
 - **Data Organization:** Expenses are categorized for easy tracking and retrieval.
 - **Responsive Design:** Clean and simple UI for both desktop and mobile devices.
 
-## Tech Stack
+## Built with
 
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB (via Mongoose)
