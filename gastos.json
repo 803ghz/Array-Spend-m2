@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "concepto": "Alquiler",
+    "cantidad": 800,
+    "categoria": "Vivienda"
+  },
+  {
+    "id": 2,
+    "concepto": "Supermercado",
+    "cantidad": 150,
+    "categoria": "Alimentación"
+  },
+  {
+    "id": 3,
+    "concepto": "Internet",
+    "cantidad": 40,
+    "categoria": "Servicios"
+  },
+  {
+    "id": 4,
+    "concepto": "Coche",
+    "cantidad": 150,
+    "categoria": "Transporte"
+  },
+  {
+    "id": 5,
+    "concepto": "Cena fuera",
+    "cantidad": 50,
+    "categoria": "Ocio"
+  },
+  {
+    "id": 6,
+    "concepto": "Luz",
+    "cantidad": 50,
+    "categoria": "Vivienda"
+  },
+  {
+    "id": 7,
+    "concepto": "Amazon Prime",
+    "cantidad": 4.99,
+    "categoria": "Ocio"
+  },
+  {
+    "id": 8,
+    "concepto": "PlayStation Plus",
+    "cantidad": 8.99,
+    "categoria": "Ocio"
+  },
+  {
+    "id": 9,
+    "concepto": "Comida Gato",
+    "cantidad": 20.99,
+    "categoria": "Alimentación"
+  },
+  {
+    "id": 10,
+    "concepto": "Teléfono Móvil",
+    "cantidad": 7,
+    "categoria": "Servicios"
+  },
+  {
+    "id": 11,
+    "concepto": "Gimnasio",
+    "cantidad": 30,
+    "categoria": "Servicios"
+  },
+  {
+    "id": 12,
+    "concepto": "Gas",
+    "cantidad": 25,
+    "categoria": "Vivienda"
+  },
+  {
+    "id": 13,
+    "concepto": "Frutería",
+    "cantidad": 12.5,
+    "categoria": "Alimentación"
+  },
+  {
+    "id": 14,
+    "concepto": "Gasolina",
+    "cantidad": 40,
+    "categoria": "Transporte"
+  }
+]
