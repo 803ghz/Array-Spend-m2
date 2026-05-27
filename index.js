@@ -60,4 +60,3 @@ app.get('/api/gastos/:id', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en ${PORT}`);
 });
-
