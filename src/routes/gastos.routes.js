@@ -6,7 +6,12 @@ const { body, validationResult } = require("express-validator");
 
 router.get('/', obtenerGastos);
 router.get('/:id', obtenerGastoPorId);
-router.post('/', body("concepto").notEmpty().withMessage("El concepto es obligatorio"), validate, crearGasto);
+router.post(
+    '/',
+    body("concepto").notEmpty().withMessage("El concepto es obligatorio"),
+    body("categoria").notEmpty().withMessage("La categoría es obligatoria"),
+    validate, crearGasto);
+
 router.put('/:id', actualizarGasto);
 
 module.exports = router;
