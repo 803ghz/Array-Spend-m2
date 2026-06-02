@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const Gasto = require('../models/gastos.models');
 
 const obtenerGastos = async (req, res) => {
@@ -19,7 +20,7 @@ const obtenerGastoPorId = async (req, res) => {
         res.status(200).json(gasto);
     } catch (error) {
         res.status(500).json({ message: error.message });
-    }
+        }
 };
 
 const crearGasto = async (req, res) => {
