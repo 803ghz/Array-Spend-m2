@@ -4,7 +4,7 @@
   "description": "ArraySpend is a lightweight, backend-focused web application designed to help users track their monthly expenses. Built with a focus on clean data structure and secure authentication, it provides a simple interface to manage your financial flow.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "repository": {
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/803ghz/Array-Spend-m2#readme",
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1"
   },
   "devDependencies": {
