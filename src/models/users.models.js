@@ -20,4 +20,17 @@ const userSchema = new mongoose.Schema(
 
 const User = mongoose.model("User", userSchema)
 
-module.exports = User;
+async function createUser(data) {
+    const newUser = new User(data);
+    return await newUser.save();
+}
+
+/**
+ * @param email - Necesita un email para poder verificar que existe en MONGO
+ */
+async function validateEmail(email) {
+    return await User.findOne({ email: email })
+
+}
+
+module.exports = { createUser, validateEmail }
