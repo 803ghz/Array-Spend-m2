@@ -27,10 +27,14 @@ async function createUser(data) {
 
 /**
  * @param email - Necesita un email para poder verificar que existe en MONGO
- */
+ */git 
 async function validateEmail(email) {
     return await User.findOne({ email: email })
-
 }
 
-module.exports = { createUser, validateEmail }
+async function findUserByEmail(email) {
+    return await User.findOne({
+        email: email })
+}
+
+module.exports = { createUser, validateEmail, findUserByEmail }
