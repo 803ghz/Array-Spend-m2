@@ -6,7 +6,7 @@ const usersRoutes = require("./routes/users.routes.js")
 app.use(express.json());
 
 app.use('/api/gastos', gastosRoutes);
-app.use('/api/gastos', usersRoutes);
+app.use('/api/users', usersRoutes);
 
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 
