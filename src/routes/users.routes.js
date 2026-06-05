@@ -19,4 +19,8 @@ router.post(
     usersController.loginUser
 )
 
+router.get("/whoami",
+    usersController.whoAmI,
+)
+
 module.exports = router
