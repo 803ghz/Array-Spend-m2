@@ -16,7 +16,7 @@ router.post(
     "/login",
     loginRules,
     validate,
-    usersController.loginUsergit add
+    usersController.loginUser
 )
 
 module.exports = router
