@@ -7,3 +7,5 @@ const registerRules = [
     .withMessage("La contraseña debe tener al menos 6 caracteres"),
 ];
 
+module.exports = registerRules;
+
