@@ -33,7 +33,7 @@ async function loginUser(req, res) {
         if (!user) {
             return res.status(401).json({ error: "Credenciales incorrectas" });
         }
- 
+
         const match = await bcrypt.compare(password, user.password);
 
         if (!match) {
@@ -43,7 +43,6 @@ async function loginUser(req, res) {
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {
             expiresIn: "1h",
         });
-        
 
         res.status(200).json({
             message: "Login correcto",
@@ -53,9 +52,30 @@ async function loginUser(req, res) {
         console.error(error);
         res.status(500).json({ message: "Error en el login" });
     }
+
+}
+
+async function whoAmI(req, res) {
+    try {
+        const authHeader = req.headers.authorization;
+        if (!authHeader) {
+            return res.status(401).json({ message: "No hay token" });
+        }
+
+        const token = authHeader.split(" ")[1]
+
+        const data = jwt.verify(token, process.env.JWT_SECRET);
+
+        res.status(200).json({ message: "Token válido", id: data.id });
+
+    } catch (error) {
+        console.log(error);
+        res.status(401).json ({ message: "Token expirado "});
+    }
 }
 
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    whoAmI,
 };
