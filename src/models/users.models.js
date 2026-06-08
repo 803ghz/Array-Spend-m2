@@ -37,4 +37,8 @@ async function findUserByEmail(email) {
         email: email })
 }
 
-module.exports = { createUser, validateEmail, findUserByEmail }
+async function findUserById(id) {
+    return await User.findById(id).select("-password");
+}
+
+module.exports = { createUser, validateEmail, findUserByEmail, findUserById }
