@@ -23,8 +23,4 @@ router.post(
 router.get("/profile",
     verifyToken, usersController.getProfile)
 
-router.get("/whoami",
-    usersController.whoAmI,
-)
-
 module.exports = router
