@@ -74,8 +74,21 @@ async function whoAmI(req, res) {
     }
 }
 
+async function getProfile (req, res) {
+    try {
+    const userId = req.user.id
+
+    const userFounded = await Users.findUserById(userId);
+
+    return res.status(200).json({ message: "Usuario encontrado", user: userFounded });
+
+} catch (error) { 
+    res.status(500).json({ message: "Error interno del sistema" })}
+}
+
 module.exports = {
     registerUser,
     loginUser,
     whoAmI,
+    getProfile,
 };
