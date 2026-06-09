@@ -1,17 +1,34 @@
 const express = require('express');
 const router = express.Router();
-const { obtenerGastos, obtenerGastoPorId, crearGasto, actualizarGasto, borrarGasto } = require('../controllers/gastos.controller');
-const validate = require("../middlewares/validate")
-const { body, validationResult } = require("express-validator");
+const { body } = require("express-validator");
+const validate = require("../middlewares/validate");
+const verifyToken = require("../middlewares/verifyToken");
+const { crearLista, obtenerListas, borrarLista, crearGasto, obtenerGastos, actualizarGasto, borrarGasto } = require('../controllers/gastos.controller');
 
-router.get('/', obtenerGastos);
-router.get('/:id', obtenerGastoPorId);
-router.post(
-    '/',
+router.get('/listas', verifyToken, obtenerListas);
+
+router.post('/listas',
+    verifyToken,
+    body("nombre").notEmpty().withMessage("El nombre de la lista es obligatorio"),
+    validate,
+    crearLista
+);
+
+router.delete('/listas/:listaId', verifyToken, borrarLista);
+
+router.get('/listas/:listaId/gastos', verifyToken, obtenerGastos);
+
+router.post('/listas/:listaId/gastos',
+    verifyToken,
     body("concepto").notEmpty().withMessage("El concepto es obligatorio"),
+    body("cantidad").isNumeric().withMessage("La cantidad debe ser un número"),
     body("categoria").notEmpty().withMessage("La categoría es obligatoria"),
-    validate, crearGasto);
+    validate,
+    crearGasto
+);
 
-router.put('/:id', actualizarGasto);
+router.put('/listas/:listaId/gastos/:gastoId', verifyToken, actualizarGasto);
+
+router.delete('/listas/:listaId/gastos/:gastoId', verifyToken, borrarGasto);
 
 module.exports = router;

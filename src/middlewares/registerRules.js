@@ -8,4 +8,3 @@ const registerRules = [
 ];
 
 module.exports = registerRules;
-
