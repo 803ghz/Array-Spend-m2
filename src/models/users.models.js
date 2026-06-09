@@ -32,12 +32,6 @@ export async function validateEmail(email) {
     return await User.findOne({ email: email });
 }
 
-export async function findUserByEmail(email) {
-    return await User.findOne({
-        email: email
-    });
-}
-
 export async function findUserById(id) {
     return await User.findById(id).select("-password");
 }
