@@ -1,4 +1,4 @@
-const {body, validationResult } = require("express-validator");
+import { body, validationResult } from "express-validator";
 
 const registerRules = [
     body("email").isEmail().withMessage("El email no es válido").normalizeEmail(),
@@ -7,4 +7,4 @@ const registerRules = [
     .withMessage("La contraseña debe tener al menos 6 caracteres"),
 ];
 
-module.exports = registerRules;
+export default registerRules;

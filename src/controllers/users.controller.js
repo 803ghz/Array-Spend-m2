@@ -1,12 +1,12 @@
-const bcrypt = require("bcrypt");
-const Users = require("../models/users.models.js");
-const jwt = require("jsonwebtoken");
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import * as Users from "../models/users.models.js";
 
-async function registerUser(req, res) {
+export async function registerUser(req, res) {
     try {
         const { email, password } = req.body;
 
-        const emailChecked = await Users.validateEmail(email)
+        const emailChecked = await Users.validateEmail(email);
 
         if (emailChecked) {
             return res.status(409).json({ error: "Este email ya ha sido registrado" });
@@ -25,7 +25,7 @@ async function registerUser(req, res) {
     }
 }
 
-async function loginUser(req, res) {
+export async function loginUser(req, res) {
     try {
         const { email, password } = req.body;
         const user = await Users.findUserByEmail(email);
@@ -40,7 +40,7 @@ async function loginUser(req, res) {
             return res.status(401).json({ error: "Credenciales incorrectas" });
         }
 
-        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "10h",
         });
 
@@ -52,23 +52,16 @@ async function loginUser(req, res) {
         console.error(error);
         res.status(500).json({ message: "Error en el login" });
     }
-
 }
 
-async function getProfile (req, res) {
+export async function getProfile(req, res) {
     try {
-    const userId = req.user.id
+        const userId = req.user.id;
 
-    const userFounded = await Users.findUserById(userId);
+        const userFounded = await Users.findUserById(userId);
 
-    return res.status(200).json({ message: "Usuario encontrado", user: userFounded });
-
-} catch (error) { 
-    res.status(500).json({ message: "Error interno del sistema" })}
+        return res.status(200).json({ message: "Usuario encontrado", user: userFounded });
+    } catch (error) {
+        res.status(500).json({ message: "Error interno del sistema" });
+    }
 }
-
-module.exports = {
-    registerUser,
-    loginUser,
-    getProfile,
-};

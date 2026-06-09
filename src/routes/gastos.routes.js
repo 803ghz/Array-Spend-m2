@@ -1,9 +1,18 @@
-const express = require('express');
+import express from 'express';
+import { body } from 'express-validator';
+import validate from '../middlewares/validate.js';
+import verifyToken from '../middlewares/verifyToken.js';
+import { 
+    crearLista, 
+    obtenerListas, 
+    borrarLista, 
+    crearGasto, 
+    obtenerGastos, 
+    actualizarGasto, 
+    borrarGasto 
+} from '../controllers/gastos.controller.js';
+
 const router = express.Router();
-const { body } = require("express-validator");
-const validate = require("../middlewares/validate");
-const verifyToken = require("../middlewares/verifyToken");
-const { crearLista, obtenerListas, borrarLista, crearGasto, obtenerGastos, actualizarGasto, borrarGasto } = require('../controllers/gastos.controller');
 
 router.get('/listas', verifyToken, obtenerListas);
 
@@ -31,4 +40,4 @@ router.put('/listas/:listaId/gastos/:gastoId', verifyToken, actualizarGasto);
 
 router.delete('/listas/:listaId/gastos/:gastoId', verifyToken, borrarGasto);
 
-module.exports = router;
+export default router;

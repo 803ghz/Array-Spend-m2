@@ -1,8 +1,7 @@
-const { validationResult } = require('express-validator');
-const Gastos = require('../models/gastos.models');
+import { validationResult } from 'express-validator';
+import * as Gastos from '../models/gastos.models.js';
 
-
-const crearLista = async (req, res) => {
+export const crearLista = async (req, res) => {
     try {
         const { nombre } = req.body;
         const usuarioId = req.user.id;
@@ -15,7 +14,7 @@ const crearLista = async (req, res) => {
     }
 };
 
-const obtenerListas = async (req, res) => {
+export const obtenerListas = async (req, res) => {
     try {
         const usuarioId = req.user.id;
 
@@ -27,7 +26,7 @@ const obtenerListas = async (req, res) => {
     }
 };
 
-const borrarLista = async (req, res) => {
+export const borrarLista = async (req, res) => {
     try {
         const lista = await Gastos.obtenerListaPorId(req.params.listaId);
 
@@ -45,7 +44,7 @@ const borrarLista = async (req, res) => {
     }
 };
 
-const crearGasto = async (req, res) => {
+export const crearGasto = async (req, res) => {
     try {
         const { concepto, cantidad, categoria } = req.body;
         const lista = await Gastos.obtenerListaPorId(req.params.listaId);
@@ -64,7 +63,7 @@ const crearGasto = async (req, res) => {
     }
 };
 
-const obtenerGastos = async (req, res) => {
+export const obtenerGastos = async (req, res) => {
     try {
         const lista = await Gastos.obtenerListaPorId(req.params.listaId);
 
@@ -82,7 +81,7 @@ const obtenerGastos = async (req, res) => {
     }
 };
 
-const actualizarGasto = async (req, res) => {
+export const actualizarGasto = async (req, res) => {
     try {
         const gasto = await Gastos.obtenerGastoPorId(req.params.gastoId);
 
@@ -102,7 +101,7 @@ const actualizarGasto = async (req, res) => {
     }
 };
 
-const borrarGasto = async (req, res) => {
+export const borrarGasto = async (req, res) => {
     try {
         const gasto = await Gastos.obtenerGastoPorId(req.params.gastoId);
 
@@ -121,5 +120,3 @@ const borrarGasto = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
-module.exports = { crearLista, obtenerListas, borrarLista, crearGasto, obtenerGastos, actualizarGasto, borrarGasto };

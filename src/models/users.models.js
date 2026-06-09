@@ -1,4 +1,4 @@
-const mongoose = require ('mongoose')
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
     {
@@ -14,13 +14,13 @@ const userSchema = new mongoose.Schema(
         },
     },
     {
-        timestamps:true,
-    },
+        timestamps: true,
+    }
 );
 
-const User = mongoose.model("User", userSchema)
+export const User = mongoose.model("User", userSchema);
 
-async function createUser(data) {
+export async function createUser(data) {
     const newUser = new User(data);
     return await newUser.save();
 }
@@ -28,17 +28,16 @@ async function createUser(data) {
 /**
  * @param email - Necesita un email para poder verificar que existe en MONGO
  */
-async function validateEmail(email) {
-    return await User.findOne({ email: email })
+export async function validateEmail(email) {
+    return await User.findOne({ email: email });
 }
 
-async function findUserByEmail(email) {
+export async function findUserByEmail(email) {
     return await User.findOne({
-        email: email })
+        email: email
+    });
 }
 
-async function findUserById(id) {
+export async function findUserById(id) {
     return await User.findById(id).select("-password");
 }
-
-module.exports = { createUser, validateEmail, findUserByEmail, findUserById }

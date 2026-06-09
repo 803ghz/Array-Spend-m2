@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 const listaSchema = new mongoose.Schema(
     {
@@ -41,53 +41,41 @@ const gastoSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-const Lista = mongoose.model("Lista", listaSchema);
-const Gasto = mongoose.model("Gasto", gastoSchema);
+export const Lista = mongoose.model("Lista", listaSchema);
+export const Gasto = mongoose.model("Gasto", gastoSchema);
 
-async function crearLista(data) {
+export async function crearLista(data) {
     return await Lista.create(data);
 }
 
-async function obtenerListasPorUsuario(usuarioId) {
+export async function obtenerListasPorUsuario(usuarioId) {
     return await Lista.find({ usuario: usuarioId });
 }
 
-async function obtenerListaPorId(id) {
+export async function obtenerListaPorId(id) {
     return await Lista.findById(id);
 }
 
-async function borrarLista(id) {
+export async function borrarLista(id) {
     return await Lista.findByIdAndDelete(id);
 }
 
-async function crearGasto(data) {
+export async function crearGasto(data) {
     return await Gasto.create(data);
 }
 
-async function obtenerGastosPorLista(listaId) {
+export async function obtenerGastosPorLista(listaId) {
     return await Gasto.find({ lista: listaId });
 }
 
-async function obtenerGastoPorId(id) {
+export async function obtenerGastoPorId(id) {
     return await Gasto.findById(id);
 }
 
-async function actualizarGasto(id, data) {
+export async function actualizarGasto(id, data) {
     return await Gasto.findByIdAndUpdate(id, data, { new: true, runValidators: true });
 }
 
-async function borrarGasto(id) {
+export async function borrarGasto(id) {
     return await Gasto.findByIdAndDelete(id);
 }
-
-module.exports = {
-    crearLista,
-    obtenerListasPorUsuario,
-    obtenerListaPorId,
-    borrarLista,
-    crearGasto,
-    obtenerGastosPorLista,
-    obtenerGastoPorId,
-    actualizarGasto,
-    borrarGasto,
-};

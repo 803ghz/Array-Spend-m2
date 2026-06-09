@@ -1,7 +1,8 @@
-const express = require("express");
+import express from "express";
+import gastosRoutes from './routes/gastos.routes.js';
+import usersRoutes from "./routes/users.routes.js";
+
 const app = express();
-const gastosRoutes = require('./routes/gastos.routes');
-const usersRoutes = require("./routes/users.routes.js")
 
 app.use(express.json());
 
@@ -10,4 +11,4 @@ app.use('/api/users', usersRoutes);
 
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 
-module.exports = app;
+export default app;
