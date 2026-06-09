@@ -64,8 +64,11 @@ export async function crearGasto(data) {
     return await Gasto.create(data);
 }
 
-export async function obtenerGastosPorLista(listaId) {
-    return await Gasto.find({ lista: listaId });
+export async function obtenerGastosPorLista(listaId, orden = 'desc') {
+    const sortOrder = orden === 'asc' ? 1 : -1;
+    
+    return await Gasto.find({ lista: listaId })
+        .sort({ createdAt: sortOrder }); 
 }
 
 export async function obtenerGastoPorId(id) {
