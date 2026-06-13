@@ -69,10 +69,11 @@ export const crearGasto = async (req, res) => {
 export const obtenerGastos = async (req, res) => {
     try {
         const { orden } = req.query;
-        
+
         const lista = await Gastos.obtenerListaPorId(req.params.listaId);
 
         if (!lista) return res.status(404).json({ message: "Lista no encontrada" });
+        
         if (lista.usuario.toString() !== req.user.id) {
             return res.status(403).json({ message: "No tienes permiso" });
         }
