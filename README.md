@@ -1,3 +1,5 @@
+<img width="1408" height="768" alt="arrayspendlogo" src="https://github.com/user-attachments/assets/9149b0e3-3df5-4c7f-bbcc-c136cb666cbc" />
+
 # ArraySpend — Monthly Expense Tracker API
 
 This project consists of a REST API for managing personal monthly expenses with user authentication. Each user registers, logs in, and manages **only their own expenses**, organized by category. Built with Node.js, Express, and MongoDB following an MVC architecture.
