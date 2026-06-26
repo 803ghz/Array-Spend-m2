@@ -4,8 +4,6 @@ import usersRoutes from "./routes/users.routes.js";
 import cors from "cors"
 
 const app = express();
-const cors = require("cors");
-
 
 app.use(express.json());
 
